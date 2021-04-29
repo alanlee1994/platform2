@@ -1,0 +1,31 @@
+syntax = "proto2";
+
+package Signal;
+
+message Signal{
+    optional string name = 1;
+    optional string instruments = 2;
+    optional string signal_ts = 3;
+    message Summary{
+        optional float total_cnt = 1;
+        optional float winrate = 2;
+        optional float avg_win = 3;
+        optional float avg_lose = 4;
+        optional float median_win = 5;
+        optional float median_lose = 6;
+        optional float sharpe = 7;
+        optional float kelly = 8;
+        optional float signal_value = 9;
+        optional string comments = 10;
+        optional string enter_ts = 11;
+        optional string exit_ts = 12;
+    }
+    repeated Summary Stats = 5; 
+}
+
+message Heartbeat{
+    optional string name = 1;
+    optional string status = 2;
+    optional string ts = 3;
+}
+
